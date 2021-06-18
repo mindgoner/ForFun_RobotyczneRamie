@@ -296,6 +296,17 @@ int give_me_a_coin(){
    delay(2000);
    engineSetHome(5);
 }
+int fuck_off(){
+    int delayAfter = 2;
+    Engines[5].setAngle(180, 0);
+    Engines[0].setAngle(30, 0);
+    Engines[3].setAngle(10, 5);
+    Engines[4].setAngle(180, 0); // 0 straight index, 180 flexed index, default 0
+    Engines[6].setAngle(180, 0); // 0 straight ring, 180 flexed ring, default 0
+    Engines[7].setAngle(180, 0); // 0 straight pinky, 180 flexed pinky, default 0
+    delay(5000);
+    engineSetHome(5);
+}
 
 // *****************************************************
 // *                                                   *
@@ -388,6 +399,8 @@ void loop() {
       i_dont_know();
     }else if(incomingByte == 52){ // DEC = 4
       give_me_a_coin();
+    }else if(incomingByte == 53){ // DEC = 5
+      fuck_off();
     }else if(incomingByte == 56){ // DEC = 8
       freestyle_arm();
     }else if(incomingByte == 57){ // DEC = 9
